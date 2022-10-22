@@ -1,12 +1,14 @@
 import { FC, useEffect, useState } from "react";
 import { createHTMLForChords, getChords } from "../utils/chordDetection";
 import { transportChords } from "../utils/transposeChords";
+import { CopyToClipboard } from "./CopyToClipboard";
 
 export const Preview: FC<{ text: string; songName: string }> = ({
   text,
   songName,
 }) => {
   const [lines, setLines] = useState<string[]>([]);
+  const displaySongName = songName || "Your Amazing Song Name 🎶";
 
   useEffect(() => {
     setLines(text.split("\n"));
@@ -16,32 +18,10 @@ export const Preview: FC<{ text: string; songName: string }> = ({
     <div>
       <header className="mb-3">
         <h2 className="font-bold inline mr-2">Live Preview</h2>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded px-2 mr-2"
-          onClick={(e) => {
-            setLines((prevLines) =>
-              prevLines.map((line) => transportChords(line, 2))
-            );
-          }}
-        >
-          Traspose +1
-        </button>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded px-2"
-          onClick={(e) => {
-            setLines((prevLines) =>
-              prevLines.map((line) => transportChords(line, +11))
-            );
-          }}
-        >
-          Traspose -1
-        </button>
       </header>
 
-      <div className="py-3 px-10 border-2 border-black rounded-md min-h-full">
-        <h2 className="text-center font-bold mb-5">
-          {songName || "Your Amazing Song Name 🎶"}
-        </h2>
+      <div className="py-3 px-10 border-2 border-black rounded-md min-h-full mb-2">
+        <h2 className="text-center font-bold mb-5">{displaySongName}</h2>
         <pre className="whitespace-pre-wrap break-words">
           {lines.map((line, index) => {
             const isChordsLine = getChords(line).length > 0;
@@ -57,6 +37,27 @@ export const Preview: FC<{ text: string; songName: string }> = ({
           })}
         </pre>
       </div>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-1 px-2 mr-2"
+        onClick={(e) => {
+          setLines((prevLines) =>
+            prevLines.map((line) => transportChords(line, 2))
+          );
+        }}
+      >
+        Transpose +1
+      </button>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-1 px-2 mr-2"
+        onClick={(e) => {
+          setLines((prevLines) =>
+            prevLines.map((line) => transportChords(line, +11))
+          );
+        }}
+      >
+        Transpose -1
+      </button>
+      <CopyToClipboard lines={lines} title={displaySongName} />
     </div>
   );
 };
