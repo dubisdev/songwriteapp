@@ -17,12 +17,23 @@ export const transportChords = (line: string, semitones: number) => {
     return newChord;
   });
 
-  let returnLine = line;
-  // replace the chords in the text
+  let processedResult = "";
+  let pendingLine = line;
+
   chords.forEach((chord, index) => {
-    returnLine = returnLine.replace(chord, newChords[index]);
+    // adds the space previous to chord
+    processedResult += pendingLine.substring(0, pendingLine.indexOf(chord));
+
+    // adds the chord with the html tag
+    processedResult += newChords[index];
+
+    // removes the chord from the pending line
+    pendingLine = pendingLine.substring(
+      pendingLine.indexOf(chord) + chord.length
+    );
   });
-  return returnLine;
+
+  return processedResult;
 };
 
 const transposeChord = (chord: string, semitones: number) => {
@@ -32,33 +43,17 @@ const transposeChord = (chord: string, semitones: number) => {
 
   const newRootNote = transpose(rootNote, semitones);
 
+  console.log(chord, newRootNote + restOfChord);
   return newRootNote + restOfChord;
 };
 
-const scale = [
-  "B#",
-  "C",
-  "C#",
-  "D",
-  "D#",
-  "E",
-  "E#",
-  "F",
-  "F#",
-  "G",
-  "G#",
-  "A",
-  "A#",
-  "B",
-];
+const scale = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const scaleBemol = [
-  "Cb",
   "C",
   "Db",
   "D",
   "Eb",
   "E",
-  "Fb",
   "F",
   "Gb",
   "G",
@@ -69,6 +64,11 @@ const scaleBemol = [
 ];
 
 const transpose = (note: string, semitones: number) => {
+  // if (note === "E#") note = "F";
+  // if (note === "B#") note = "C";
+  // if (note === "Fb") note = "E";
+  // if (note === "Cb") note = "B";
+
   const useBemol = note.includes("b");
 
   let noteIndex = useBemol ? scaleBemol.indexOf(note) : scale.indexOf(note);
@@ -78,8 +78,10 @@ const transpose = (note: string, semitones: number) => {
 
   // get the new note handling the edge cases (out of range)
   const newNote = useBemol
-    ? scaleBemol[newNoteIndex] || scaleBemol[Math.abs(newNoteIndex - 13)]
-    : scale[newNoteIndex] || scale[Math.abs(newNoteIndex - 13)];
+    ? scaleBemol[newNoteIndex] || scaleBemol[Math.abs(newNoteIndex - 12)]
+    : scale[newNoteIndex] || scale[Math.abs(newNoteIndex - 12)];
+
+  console.log(note, newNote);
 
   return newNote;
 };
