@@ -59,6 +59,16 @@ export const Preview: FC<{ text: string; songName: string }> = ({
         Transpose -1
       </button>
       <CopyToClipboard lines={lines} title={displaySongName} />
+      <input
+        className="px-2 py-1"
+        type="color"
+        onChange={(e) => {
+          document.documentElement.style.setProperty(
+            "--cords-color",
+            e.target.value
+          );
+        }}
+      />
     </div>
   );
 };

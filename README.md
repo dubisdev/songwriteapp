@@ -15,7 +15,7 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 - [ ] maj & add chord support
 - [ ] Double ## and bb
 - [ ] Dark mode
-- [ ] Custom Chords Color
+- [x] Custom Chords Color
 - [ ] Use zustand for state management
 - [ ] Use tabs as spaces
 - [ ] Mobile friendly

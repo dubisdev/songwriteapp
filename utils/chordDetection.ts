@@ -28,7 +28,7 @@ export const createHTMLForChords = (line: string, chords: string[]) => {
     processedResult += pendingLine.substring(0, pendingLine.indexOf(chord));
 
     // adds the chord with the html tag
-    processedResult += `<span style="color: red;">${chord}</span>`;
+    processedResult += `<span style="color: var(--cords-color);">${chord}</span>`;
 
     // removes the chord from the pending line
     pendingLine = pendingLine.substring(
