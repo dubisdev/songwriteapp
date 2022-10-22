@@ -1,14 +1,22 @@
-export const getChords = (text: string) => {
-  const cleanLine = text.trim();
+export const getChords = (line: string) => {
+  let cleanLine = line.trim();
 
-  const chords = cleanLine.match(/([A-G][#b]?m?\d?)/g);
-  if (!chords) return [];
+  // removes comments from line
+  const commentMatches = cleanLine.matchAll(/\(\w*\)/g);
+  Array.from(commentMatches).forEach((match) => {
+    cleanLine = cleanLine.replace(match[0], "");
+  });
 
-  const words = cleanLine.split(" ").filter((word) => word !== "");
+  const chordCandidates = cleanLine.split(" ").filter((word) => word !== "");
 
-  const isChordsLine = chords.length === words.length;
+  const results = chordCandidates.map((chord) =>
+    //chord.match(/([A-G](##?|♯♯?|♮♮?|𝄪|x|bb?|♭♭?)?m?\d?$)/)
+    chord.match(/([A-G](#|b)?m?\d?$)/)
+  );
 
-  return isChordsLine ? chords : [];
+  if (results.includes(null)) return [];
+
+  return results.map((res) => res![0]);
 };
 
 export const createHTMLForChords = (line: string, chords: string[]) => {
@@ -28,5 +36,5 @@ export const createHTMLForChords = (line: string, chords: string[]) => {
     );
   });
 
-  return processedResult + "\n";
+  return processedResult + pendingLine + "\n";
 };

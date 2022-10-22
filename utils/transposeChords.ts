@@ -33,7 +33,7 @@ export const transportChords = (line: string, semitones: number) => {
     );
   });
 
-  return processedResult;
+  return processedResult + pendingLine;
 };
 
 const transposeChord = (chord: string, semitones: number) => {
