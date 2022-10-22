@@ -51,7 +51,7 @@ export const Preview: FC<{ text: string; songName: string }> = ({
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-1 px-2 mr-2"
         onClick={(e) => {
           setLines((prevLines) =>
-            prevLines.map((line) => transportChords(line, +11))
+            prevLines.map((line) => transportChords(line, -2))
           );
         }}
       >
