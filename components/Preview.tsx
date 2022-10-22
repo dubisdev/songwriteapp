@@ -19,9 +19,9 @@ export const Preview: FC<{ text: string; songName: string }> = ({
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded px-2 mr-2"
           onClick={(e) => {
-            setLines((prevLines) => {
-              return prevLines.map((line) => transportChords(line, 2));
-            });
+            setLines((prevLines) =>
+              prevLines.map((line) => transportChords(line, 2))
+            );
           }}
         >
           Traspose +1
@@ -29,9 +29,9 @@ export const Preview: FC<{ text: string; songName: string }> = ({
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded px-2"
           onClick={(e) => {
-            setLines((prevLines) => {
-              return prevLines.map((line) => transportChords(line, +11));
-            });
+            setLines((prevLines) =>
+              prevLines.map((line) => transportChords(line, +11))
+            );
           }}
         >
           Traspose -1
@@ -43,12 +43,12 @@ export const Preview: FC<{ text: string; songName: string }> = ({
           {songName || "Your Amazing Song Name 🎶"}
         </h2>
         <pre className="whitespace-pre-wrap break-words">
-          {lines.map((line) => {
+          {lines.map((line, index) => {
             const isChordsLine = getChords(line).length > 0;
             if (!isChordsLine) return line + "\n";
             return (
               <span
-                key={line}
+                key={index}
                 dangerouslySetInnerHTML={{
                   __html: createHTMLForChords(line, getChords(line)),
                 }}
