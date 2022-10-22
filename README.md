@@ -8,6 +8,10 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 
 - [x] Basic Song Editor: chords, lyrics, and a title
 - [x] Transpose chords (basic +1/-1)
+- [ ] maj & add chord support
+- [ ] Double ## and bb
+- [ ] Dark mode
+- [ ] Custom Chords Color
 - [ ] Use zustand for state management
 - [ ] Use tabs as spaces
 - [ ] Mobile friendly
