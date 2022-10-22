@@ -14,30 +14,49 @@ export const Preview: FC<{ text: string; songName: string }> = ({
 
   return (
     <div>
-      <h2 className="text-center font-bold">{songName}</h2>
-      <pre className="whitespace-pre-wrap break-words">
-        {lines.map((line) => {
-          const isChordsLine = getChords(line).length > 0;
-          if (!isChordsLine) return line + "\n";
-          return (
-            <span
-              key={line}
-              dangerouslySetInnerHTML={{
-                __html: createHTMLForChords(line, getChords(line)),
-              }}
-            ></span>
-          );
-        })}
-      </pre>
-      <button
-        onClick={(e) => {
-          setLines((prevLines) => {
-            return prevLines.map((line) => transportChords(line, 2));
-          });
-        }}
-      >
-        +1
-      </button>
+      <header className="mb-3">
+        <h2 className="font-bold inline mr-2">Live Preview</h2>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded px-2 mr-2"
+          onClick={(e) => {
+            setLines((prevLines) => {
+              return prevLines.map((line) => transportChords(line, 2));
+            });
+          }}
+        >
+          Traspose +1
+        </button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded px-2"
+          onClick={(e) => {
+            setLines((prevLines) => {
+              return prevLines.map((line) => transportChords(line, +11));
+            });
+          }}
+        >
+          Traspose -1
+        </button>
+      </header>
+
+      <div className="py-3 px-10 border-2 border-black rounded-md min-h-[80vh]">
+        <h2 className="text-center font-bold mb-5">
+          {songName || "Your Amazing Song Name 🎶"}
+        </h2>
+        <pre className="whitespace-pre-wrap break-words">
+          {lines.map((line) => {
+            const isChordsLine = getChords(line).length > 0;
+            if (!isChordsLine) return line + "\n";
+            return (
+              <span
+                key={line}
+                dangerouslySetInnerHTML={{
+                  __html: createHTMLForChords(line, getChords(line)),
+                }}
+              ></span>
+            );
+          })}
+        </pre>
+      </div>
     </div>
   );
 };

@@ -7,10 +7,12 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 ## Roadmap
 
 - [x] Basic Song Editor: chords, lyrics, and a title
-- [x] Transpose chords (basic +1)
+- [x] Transpose chords (basic +1/-1)
+- [ ] Use zustand for state management
 - [ ] Use tabs as spaces
 - [ ] Mobile friendly
 - [ ] Transpose chords
+- [ ] Copy to clipboard
 - [ ] Export to word (doc, docx, odt...)
 - [ ] Print to PDF
 - [ ] User accounts

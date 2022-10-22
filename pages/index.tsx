@@ -7,7 +7,7 @@ import { Preview } from "../components/Preview";
 
 const Home: NextPage = () => {
   const [text, setText] = useState("");
-  const [songName, setSongName] = useState("Awesome Song Name 🎶");
+  const [songName, setSongName] = useState("");
 
   return (
     <div>
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <h1 className="mb-5 text-3xl font-bold underline text-center">
+      <h1 className="p-4 mb-5 text-3xl font-bold underline text-center">
         SongWrite.app
       </h1>
       <Layout>
