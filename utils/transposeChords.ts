@@ -64,10 +64,10 @@ const scaleBemol = [
 ];
 
 const transpose = (note: string, semitones: number) => {
-  // if (note === "E#") note = "F";
-  // if (note === "B#") note = "C";
-  // if (note === "Fb") note = "E";
-  // if (note === "Cb") note = "B";
+  if (note === "E#") note = "F";
+  if (note === "B#") note = "C";
+  if (note === "Fb") note = "E";
+  if (note === "Cb") note = "B";
 
   const useBemol = note.includes("b");
 
