@@ -24,13 +24,14 @@ export const Preview: FC<{ text: string; songName: string }> = ({
         <h2 className="text-center font-bold mb-5">{displaySongName}</h2>
         <pre className="whitespace-pre-wrap break-words">
           {lines.map((line, index) => {
-            const isChordsLine = getChords(line).length > 0;
+            const chords = getChords(line);
+            const isChordsLine = chords.length > 0;
             if (!isChordsLine) return line + "\n";
             return (
               <span
                 key={index}
                 dangerouslySetInnerHTML={{
-                  __html: createHTMLForChords(line, getChords(line)),
+                  __html: createHTMLForChords(line, chords),
                 }}
               ></span>
             );
