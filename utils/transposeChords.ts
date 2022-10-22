@@ -78,8 +78,8 @@ const transpose = (note: string, semitones: number) => {
 
   // get the new note handling the edge cases (out of range)
   const newNote = useBemol
-    ? scaleBemol[newNoteIndex] || scaleBemol[Math.abs(newNoteIndex - 12)]
-    : scale[newNoteIndex] || scale[Math.abs(newNoteIndex - 12)];
+    ? scaleBemol[newNoteIndex] || scaleBemol[Math.abs(newNoteIndex - 13)]
+    : scale[newNoteIndex] || scale[Math.abs(newNoteIndex - 13)];
 
   console.log(note, newNote);
 
