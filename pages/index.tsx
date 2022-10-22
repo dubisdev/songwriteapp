@@ -13,7 +13,10 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>SongWrite.app</title>
-        <meta name="description" content="Enjoy writting your letters!" />
+        <meta
+          name="description"
+          content="A simple songwriting app for the web 🎶"
+        />
       </Head>
 
       <h1 className="mb-5 text-3xl font-bold underline text-center">

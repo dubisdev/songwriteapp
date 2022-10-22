@@ -1,6 +1,7 @@
 {
   "name": "songwriterapp",
   "version": "0.1.0",
+  "description": "A simple songwriting app for the web 🎶",
   "private": true,
   "scripts": {
     "dev": "next dev",
