@@ -1,5 +1,8 @@
 # SongWrite.app - A simple songwriting app for the web 🎶
 
+![image](https://user-images.githubusercontent.com/77246331/197357785-eabc98d0-952b-4c78-a150-c68fa5bc6446.png)
+
+
 ## What is it?
 
 SongWrite.app is a simple songwriting app for the web. It's a single page app that runs in your browser. It's designed to be used on a tablet or laptop, but it works on a phone too.
