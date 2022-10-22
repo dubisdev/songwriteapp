@@ -38,7 +38,7 @@ export const Preview: FC<{ text: string; songName: string }> = ({
         </button>
       </header>
 
-      <div className="py-3 px-10 border-2 border-black rounded-md min-h-[80vh]">
+      <div className="py-3 px-10 border-2 border-black rounded-md min-h-full">
         <h2 className="text-center font-bold mb-5">
           {songName || "Your Amazing Song Name 🎶"}
         </h2>

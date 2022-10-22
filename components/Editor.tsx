@@ -24,7 +24,7 @@ export const Editor: FC<{
         defaultValue={text}
         onChange={(e) => onChange(e.currentTarget.value)}
         placeholder="Here goes your song!"
-        className="min-h-[80vh] w-full resize-none p-3 border-2 border-gray-300 rounded-sm font-mono"
+        className="min-h-full w-full resize-none p-3 border-2 border-gray-300 rounded-sm font-mono"
       />
     </div>
   );
