@@ -1,15 +1,14 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { createHTMLForChords, getChords } from "../utils/chordDetection";
+import { useStore } from "../utils/state";
 import { transportChords } from "../utils/transposeChords";
 import { CopyToClipboard } from "./CopyToClipboard";
 import { DownloadPDF } from "./DownloadPDF";
 
-type PreviewParams = { text: string; songName: string };
-
-export const Preview: FC<PreviewParams> = ({ text, songName }) => {
+export const Preview: FC = () => {
+  const [text, songName] = useStore((state) => [state.text, state.songName]);
   const preview = useRef(null);
   const [lines, setLines] = useState<string[]>([]);
-  const displaySongName = songName || "Your Amazing Song Name 🎶";
 
   useEffect(() => {
     setLines(text.split("\n"));
@@ -23,9 +22,7 @@ export const Preview: FC<PreviewParams> = ({ text, songName }) => {
 
       <div className="border-2 border-black rounded-md min-h-full mb-2">
         <div ref={preview} className="py-3 px-16">
-          <h2 className="text-center font-bold mb-8 text-3xl">
-            {displaySongName}
-          </h2>
+          <h2 className="text-center font-bold mb-8 text-3xl">{songName}</h2>
           <pre className="whitespace-pre-wrap break-words text-lg">
             {lines.map((line, index) => {
               const chords = getChords(line);
@@ -71,7 +68,7 @@ export const Preview: FC<PreviewParams> = ({ text, songName }) => {
       >
         Share Link
       </button>
-      <CopyToClipboard content={text} title={displaySongName} />
+      <CopyToClipboard />
       <input
         className="px-2 py-1"
         type="color"

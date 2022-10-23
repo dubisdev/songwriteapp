@@ -11,6 +11,7 @@ export const contentToHashedURL = ({ title = "", content = "" }) => {
 };
 
 export function updateHashedContent({ title = "", content = "" }) {
+  if (!title && !content) return window.history.replaceState(null, "", `/`);
   const hashedContent = `${encode(title)}|${encode(content)}`;
   window.history.replaceState(null, "", `/${hashedContent}`);
 }

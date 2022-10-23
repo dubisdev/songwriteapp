@@ -1,5 +1,14 @@
 # SongWrite.app - A simple songwriting app for the web 🎶
 
+## Features
+
+- 🎵 **Simple** - SongWrite.app is a simple songwriting app for the web. It's designed to be easy to use so you can focus on writing your song.
+- 🔃 **Transpositions** - Transpose your song to any key with a single click.
+- 🔗 **Sharing** - Share your song with a permalink. You can also export your song as a PDF.
+- 💄 **Personalization** - Customize your songwriting experience with custom chord colors.
+- 🧬 **Live Preview** - See your song as you type it.
+- 🔏 **No account required** - No account required to use SongWrite.app. Just open the app and start writing.
+
 ![image](https://user-images.githubusercontent.com/77246331/197357785-eabc98d0-952b-4c78-a150-c68fa5bc6446.png)
 
 ## What is it?
@@ -22,10 +31,11 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 - [x] Double ## and bb
 - [ ] Souble sharps (x)
 - [ ] Dark mode
-- [ ] Use zustand for state management
+- [x] Use zustand for state management
 - [ ] Use tabs as spaces
 - [ ] Mobile friendly
-- [ ] Transpose chords
+- [ ] Transpose chords (More options)
+- [ ] Custom Scale with preferred chords (e.g. `C C# D Eb E F F# G Ab A Bb B`)
 - [ ] Export to word (doc, docx, odt...)
 - [x] Print to PDF (Basic Support)
 - [ ] Print to PDF (Fix multiple pages issue)

@@ -1,13 +1,16 @@
 import { FC, useState } from "react";
+import { useStore } from "../utils/state";
 
-export const CopyToClipboard: FC<{ content: string; title: string }> = ({
-  content,
-  title,
-}) => {
+export const CopyToClipboard: FC = () => {
+  const [songContent, songName] = useStore((state) => [
+    state.text,
+    state.songName,
+  ]);
+
   const [text, setText] = useState("Copy To Clipboard");
 
   const handleClick = () => {
-    navigator.clipboard.writeText(title + "\n\n" + content);
+    navigator.clipboard.writeText(songName + "\n\n" + songContent);
     setText("☑️ Copied!");
 
     setTimeout(() => {

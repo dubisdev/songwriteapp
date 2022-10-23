@@ -5,12 +5,12 @@ import { Editor } from "../components/Editor";
 import { Layout } from "../components/Layout";
 import { Preview } from "../components/Preview";
 import { getHashedContent } from "../utils/hashedLink";
+import { useStore } from "../utils/state";
 
 type HomeParams = { title: string; content: string };
 
 const Home: NextPage<HomeParams> = ({ title = "", content = "" }) => {
-  const [songName, setSongName] = useState(title);
-  const [text, setText] = useState(content);
+  const [setSongName, setText] = useStore((s) => [s.setSongName, s.setText]);
 
   useEffect(() => {
     setSongName(title);
@@ -33,13 +33,8 @@ const Home: NextPage<HomeParams> = ({ title = "", content = "" }) => {
 
       <Layout>
         <>
-          <Editor
-            text={text}
-            onChange={setText}
-            songName={songName}
-            setSongName={setSongName}
-          />
-          <Preview text={text} songName={songName} />
+          <Editor />
+          <Preview />
         </>
       </Layout>
     </div>
