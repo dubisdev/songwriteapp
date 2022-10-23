@@ -10,17 +10,19 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 
 - [x] Basic Song Editor: chords, lyrics, and a title
 - [x] Transpose chords (basic +1/-1)
-- [ ] Bass chord support (e.g. `C/B`)
+- [x] Share by URL
+- [x] Copy to clipboard
 - [x] Add comments in chord lines (e.g. `C#m7 F# (x2) or G#m7 F# (pianissimo)`)
+- [x] Custom Chords Color
+- [x] Share as preview only
+- [ ] Bass chord support (e.g. `C/B`)
 - [ ] maj & add chord support
 - [ ] Double ## and bb
 - [ ] Dark mode
-- [x] Custom Chords Color
 - [ ] Use zustand for state management
 - [ ] Use tabs as spaces
 - [ ] Mobile friendly
 - [ ] Transpose chords
-- [x] Copy to clipboard
 - [ ] Export to word (doc, docx, odt...)
 - [ ] Print to PDF
 - [ ] User accounts

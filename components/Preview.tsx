@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from "react";
 import { createHTMLForChords, getChords } from "../utils/chordDetection";
+import { contentToHashedURL } from "../utils/hashedLink";
 import { transportChords } from "../utils/transposeChords";
 import { CopyToClipboard } from "./CopyToClipboard";
 
-export const Preview: FC<{ text: string; songName: string }> = ({
-  text,
-  songName,
-}) => {
+type PreviewParams = { text: string; songName: string };
+
+export const Preview: FC<PreviewParams> = ({ text, songName }) => {
   const [lines, setLines] = useState<string[]>([]);
   const displaySongName = songName || "Your Amazing Song Name 🎶";
 
@@ -58,7 +58,16 @@ export const Preview: FC<{ text: string; songName: string }> = ({
       >
         Transpose -1
       </button>
-      <CopyToClipboard lines={lines} title={displaySongName} />
+      <button
+        className="bg-purple-500 hover:bg-purple-700 text-white font-bold rounded py-1 px-2 mr-2"
+        onClick={(e) => {
+          const url = contentToHashedURL({ title: songName, content: text });
+          navigator.clipboard.writeText(url);
+        }}
+      >
+        Share Link
+      </button>
+      <CopyToClipboard content={text} title={displaySongName} />
       <input
         className="px-2 py-1"
         type="color"

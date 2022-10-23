@@ -1,13 +1,13 @@
 import { FC, useState } from "react";
 
-export const CopyToClipboard: FC<{ lines: string[]; title: string }> = ({
-  lines,
+export const CopyToClipboard: FC<{ content: string; title: string }> = ({
+  content,
   title,
 }) => {
   const [text, setText] = useState("Copy To Clipboard");
 
   const handleClick = () => {
-    navigator.clipboard.writeText(title + "\n\n" + lines.join("\n"));
+    navigator.clipboard.writeText(title + "\n\n" + content);
     setText("☑️ Copied!");
 
     setTimeout(() => {
