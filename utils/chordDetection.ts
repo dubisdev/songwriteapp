@@ -11,7 +11,7 @@ export const getChords = (line: string) => {
 
   const results = chordCandidates.map((chord) =>
     //chord.match(/([A-G](##?|♯♯?|♮♮?|𝄪|x|bb?|♭♭?)?m?\d?$)/)
-    chord.match(/([A-G](#|b)?(m|maj|M)?(\d\d?)?$)/)
+    chord.match(/([A-G](##?|bb?)?(m|maj|M)?(\d\d?)?$)/)
   );
 
   if (results.includes(null)) return [];

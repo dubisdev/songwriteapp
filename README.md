@@ -19,7 +19,8 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 - [ ] Bass chord support (e.g. `C/B`)
 - [x] maj chord support (e.g. `Cmaj7`)
 - [ ] add chord support (e.g. `Cadd9`)
-- [ ] Double ## and bb
+- [x] Double ## and bb
+- [ ] Souble sharps (x)
 - [ ] Dark mode
 - [ ] Use zustand for state management
 - [ ] Use tabs as spaces
