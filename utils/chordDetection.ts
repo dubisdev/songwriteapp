@@ -2,7 +2,7 @@ export const getChords = (line: string) => {
   let cleanLine = line.trim();
 
   // removes comments from line
-  const commentMatches = cleanLine.matchAll(/\(\w*\)/g);
+  const commentMatches = cleanLine.matchAll(/\([^\)]*\)/g);
   Array.from(commentMatches).forEach((match) => {
     cleanLine = cleanLine.replace(match[0], "");
   });
@@ -11,7 +11,7 @@ export const getChords = (line: string) => {
 
   const results = chordCandidates.map((chord) =>
     //chord.match(/([A-G](##?|♯♯?|♮♮?|𝄪|x|bb?|♭♭?)?m?\d?$)/)
-    chord.match(/([A-G](#|b)?m?\d?$)/)
+    chord.match(/([A-G](#|b)?(m|maj|M)?(\d\d?)?$)/)
   );
 
   if (results.includes(null)) return [];
