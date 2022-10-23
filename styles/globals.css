@@ -15,3 +15,12 @@ textarea:focus::placeholder {
     transition: all 0.2s;
     color: transparent
 }
+
+#title {
+    color: #000000;
+    background-image: -webkit-linear-gradient(0deg, #000000 0%, #0059ff 45%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}

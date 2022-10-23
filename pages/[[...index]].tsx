@@ -28,8 +28,9 @@ const Home: NextPage<HomeParams> = ({ title = "", content = "" }) => {
       </Head>
 
       <h1 className="p-4 mb-5 text-3xl font-bold underline text-center">
-        SongWrite.app
+        <span id="title">SongWrite.app</span>
       </h1>
+
       <Layout>
         <>
           <Editor
