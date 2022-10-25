@@ -25,7 +25,7 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 - [x] Add comments in chord lines (e.g. `C#m7 F# (x2) or G#m7 F# (pianissimo)`)
 - [x] Custom Chords Color
 - [x] Share as preview only
-- [ ] Bass chord support (e.g. `C/B`)
+- [x] Bass chord support (e.g. `C/B`)
 - [x] maj chord support (e.g. `Cmaj7`)
 - [ ] add chord support (e.g. `Cadd9`)
 - [x] Double ## and bb

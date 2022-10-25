@@ -7,6 +7,9 @@ export const getChords = (line: string) => {
     cleanLine = cleanLine.replace(match[0], "");
   });
 
+  // removes symbols from line
+  cleanLine = cleanLine.replace(/[^\w\d\s#]/g, " ").trim();
+
   const chordCandidates = cleanLine.split(" ").filter((word) => word !== "");
 
   const results = chordCandidates.map((chord) =>
