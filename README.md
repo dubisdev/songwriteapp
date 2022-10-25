@@ -29,7 +29,7 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 - [x] maj chord support (e.g. `Cmaj7`)
 - [ ] add chord support (e.g. `Cadd9`)
 - [x] Double ## and bb
-- [ ] Souble sharps (x)
+- [x] Double sharps (x)
 - [ ] Dark mode
 - [x] Use zustand for state management
 - [ ] Use tabs as spaces

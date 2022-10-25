@@ -20,7 +20,9 @@ export const transportChords = (line: string, semitones: number) => {
 
   // traspose them to the new key
   const newChords = chords.map((chord) => {
-    const newChord = transposeChord(chord, semitones);
+    // replace x with double sharp
+    const normalizedChord = chord.replace("x", "##");
+    const newChord = transposeChord(normalizedChord, semitones);
     return newChord;
   });
 
