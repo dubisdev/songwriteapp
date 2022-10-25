@@ -7,14 +7,17 @@ export const getChords = (line: string) => {
     cleanLine = cleanLine.replace(match[0], "");
   });
 
+  // removes repetition comments as x2, x3, etc
+  cleanLine = cleanLine.replace(/\bx\d+\b/gi, "");
+
   // removes symbols from line
-  cleanLine = cleanLine.replace(/[^\w\d\s#]/g, " ").trim();
+  cleanLine = cleanLine.replace(/[^\w\d\s#]/g, "").trim();
 
   const chordCandidates = cleanLine.split(" ").filter((word) => word !== "");
 
   const results = chordCandidates.map((chord) =>
     //chord.match(/([A-G](##?|♯♯?|♮♮?|𝄪|x|bb?|♭♭?)?m?\d?$)/)
-    chord.match(/([A-G](##?|x|bb?)?(m|maj|M)?(\d\d?)?$)/)
+    chord.match(/\b([A-G](##?|x|bb?)?(m|maj|M)?(\d\d?)?$)/)
   );
 
   if (results.includes(null)) return [];
