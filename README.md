@@ -20,7 +20,7 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 - [x] Basic Song Editor: chords, lyrics, and a title
 - [x] Transpose chords (basic +1/-1)
 - [x] Share by URL
-- [ ] Debounce URL changing
+- [x] Debounce URL changing
 - [x] Copy to clipboard
 - [x] Add comments in chord lines (e.g. `C#m7 F# (x2) or G#m7 F# (pianissimo)`)
 - [x] Custom Chords Color

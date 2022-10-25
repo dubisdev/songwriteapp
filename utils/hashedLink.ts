@@ -1,4 +1,5 @@
 import { encode, decode } from "js-base64";
+import debounce from "just-debounce";
 
 export function getHashedContent(hash: string) {
   const [title = "", content = ""] = hash.split("|").map(decode);
@@ -15,3 +16,5 @@ export function updateHashedContent({ title = "", content = "" }) {
   const hashedContent = `${encode(title)}|${encode(content)}`;
   window.history.replaceState(null, "", `/${hashedContent}`);
 }
+
+export const debouncedUpdateHashedContent = debounce(updateHashedContent, 1500);

@@ -1,5 +1,5 @@
 import create from "zustand";
-import { updateHashedContent } from "./hashedLink";
+import { debouncedUpdateHashedContent } from "./hashedLink";
 
 interface SongState {
   songName: string;
@@ -15,7 +15,7 @@ export const useStore = create<SongState>()((set) => ({
   setSongName: (songName: string) => {
     set((state) => {
       (songName || (!songName && state.songName)) &&
-        updateHashedContent({ title: songName, content: state.text });
+        debouncedUpdateHashedContent({ title: songName, content: state.text });
       return { songName };
     });
   },
@@ -23,7 +23,7 @@ export const useStore = create<SongState>()((set) => ({
   setText: (text: string) =>
     set((state) => {
       (text || (!text && state.text)) &&
-        updateHashedContent({ title: state.songName, content: text });
+        debouncedUpdateHashedContent({ title: state.songName, content: text });
       return { text };
     }),
 }));
