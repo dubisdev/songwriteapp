@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, useEffect, useRef, useState } from "react";
 import { createHTMLForChords, getChords } from "../utils/chordDetection";
 import { useStore } from "../utils/state";
