@@ -1,6 +1,6 @@
 import { Editor } from "../../components/Editor";
 import { Preview } from "../../components/Preview";
-import { getHashedContent } from "../../utils/hashedLink";
+import { getContentFromParams } from "../../utils/hashedLink";
 
 type HomeParams = {
   params: { index?: string[] };
@@ -8,9 +8,7 @@ type HomeParams = {
 };
 
 const Home = ({ params }: HomeParams) => {
-  const hashcontent = params.index?.[0] || "";
-
-  const { title, content } = getHashedContent(hashcontent);
+  const { title, content } = getContentFromParams(params);
 
   return (
     <div className="px-2 md:grid md:grid-cols-2 gap-2">
