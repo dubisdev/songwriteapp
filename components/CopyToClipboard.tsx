@@ -1,11 +1,10 @@
+"use client";
+
 import { FC, useState } from "react";
 import { useStore } from "../utils/state";
 
 export const CopyToClipboard: FC = () => {
-  const [songContent, songName] = useStore((state) => [
-    state.text,
-    state.songName,
-  ]);
+  const [songContent, songName] = useStore((s) => [s.text, s.songName]);
 
   const [text, setText] = useState("Copy To Clipboard");
 

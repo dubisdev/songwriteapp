@@ -11,7 +11,7 @@ type EditorProps = {
 
 export const Editor: FC<EditorProps> = ({ content, title }) => {
   const setSongName = useStore((s) => s.setSongName);
-  const setText = useStore((state) => state.setText);
+  const setText = useStore((s) => s.setText);
 
   useEffect(() => {
     setSongName(title);

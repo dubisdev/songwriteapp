@@ -8,7 +8,7 @@ import { CopyToClipboard } from "./CopyToClipboard";
 import { DownloadPDF } from "./DownloadPDF";
 
 export const Preview: FC = () => {
-  const [text, songName] = useStore((state) => [state.text, state.songName]);
+  const [text, songName] = useStore((s) => [s.text, s.songName]);
   const preview = useRef(null);
   const [lines, setLines] = useState<string[]>([]);
 
@@ -36,7 +36,7 @@ export const Preview: FC = () => {
                   dangerouslySetInnerHTML={{
                     __html: createHTMLForChords(line, chords),
                   }}
-                ></span>
+                />
               );
             })}
           </pre>
