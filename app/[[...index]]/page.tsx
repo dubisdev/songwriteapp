@@ -1,5 +1,4 @@
 import { Editor } from "../../components/Editor";
-import { Layout } from "../../components/Layout";
 import { Preview } from "../../components/Preview";
 import { getHashedContent } from "../../utils/hashedLink";
 
@@ -14,18 +13,10 @@ const Home = ({ params }: HomeParams) => {
   const { title, content } = getHashedContent(hashcontent);
 
   return (
-    <>
-      <h1 className="p-4 mb-5 text-3xl font-bold underline text-center">
-        <span id="title">SongWrite.app</span>
-      </h1>
-
-      <Layout>
-        <>
-          <Editor content={content} title={title} />
-          <Preview />
-        </>
-      </Layout>
-    </>
+    <div className="px-2 md:grid md:grid-cols-2 gap-2">
+      <Editor content={content} title={title} />
+      <Preview />
+    </div>
   );
 };
 
