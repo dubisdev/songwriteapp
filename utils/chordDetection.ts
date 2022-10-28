@@ -4,14 +4,14 @@ export const getChords = (line: string) => {
   // removes comments from line
   const commentMatches = cleanLine.matchAll(/\([^\)]*\)/g);
   Array.from(commentMatches).forEach((match) => {
-    cleanLine = cleanLine.replace(match[0], "");
+    cleanLine = cleanLine.replace(match[0], " ");
   });
 
   // removes repetition comments as x2, x3, etc
-  cleanLine = cleanLine.replace(/\bx\d+\b/gi, "");
+  cleanLine = cleanLine.replace(/\bx\d+\b/gi, " ");
 
   // removes symbols from line
-  cleanLine = cleanLine.replace(/[^\w\d\s#]/g, "").trim();
+  cleanLine = cleanLine.replace(/[^\w\d #]/g, " ").trim();
 
   const chordCandidates = cleanLine.split(" ").filter((word) => word !== "");
 
