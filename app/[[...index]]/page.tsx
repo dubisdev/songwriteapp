@@ -4,7 +4,6 @@ import { getContentFromParams } from "../../utils/hashedLink";
 
 type HomeParams = {
   params?: { index?: string[] };
-  searchParams?: { id: string };
 };
 
 const Home = ({ params }: HomeParams) => {
