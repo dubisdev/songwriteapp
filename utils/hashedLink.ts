@@ -17,8 +17,8 @@ export function updateHashedContent({ title = "", content = "" }) {
   window.history.replaceState(null, "", `/${hashedContent}`);
 }
 
-export const getContentFromParams = (params: { index?: string[] }) => {
-  const hashedContent = params.index?.[0] || "";
+export const getContentFromParams = ({ index }: { index?: string[] } = {}) => {
+  const hashedContent = index?.[0] || "";
 
   const { title = "", content = "" } = getHashedContent(hashedContent);
   return { title, content };
