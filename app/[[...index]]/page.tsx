@@ -2,7 +2,12 @@ import { Editor } from "../../components/Editor";
 import { Preview } from "../../components/Preview";
 import { getContentFromParams } from "../../utils/hashedLink";
 
-const Home = ({ params }: { params: { index?: string[] } }) => {
+type HomeParams = {
+  params: { index?: string[] };
+  searchParams: { id: string };
+};
+
+const Home = ({ params }: HomeParams) => {
   const { title, content } = getContentFromParams(params);
 
   return (
