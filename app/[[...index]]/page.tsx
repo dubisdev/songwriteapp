@@ -3,8 +3,8 @@ import { Preview } from "../../components/Preview";
 import { getContentFromParams } from "../../utils/hashedLink";
 
 type HomeParams = {
-  params: { index?: string[] };
-  searchParams: { id: string };
+  params?: { index?: string[] };
+  searchParams?: { id: string };
 };
 
 const Home = ({ params }: HomeParams) => {
