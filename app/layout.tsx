@@ -9,6 +9,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <head>
         <title>SongWrite.app</title>
+        <meta charSet="utf-8"></meta>
+        <meta name="viewport" content="width=device-width"></meta>
         <meta
           name="description"
           content="A simple songwriting app for the web 🎶"
