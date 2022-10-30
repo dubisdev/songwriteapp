@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, useEffect } from "react";
 import TextareaAutosize from "react-autosize-textarea";
 import { useStore } from "../utils/state";
