@@ -22,7 +22,7 @@ export const Editor: FC<EditorProps> = ({ content, title }) => {
         <h2 className="text-start font-bold inline mr-2">Song Editor</h2>
         <input
           placeholder="Your Amazing song Name 🎶"
-          className="outline outline-2 outline-gray-900 rounded-md w-1/2 text-center"
+          className="outline outline-2 outline-gray-900 rounded-md w-1/2 text-center p-0"
           type="text"
           defaultValue={title}
           onChange={(e) => setSongName(e.target.value)}

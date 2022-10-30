@@ -1,22 +1,19 @@
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import Link from "next/link";
-import Image from "next/image";
 
 const Nav = () => {
   const user = useUser();
   const client = useSupabaseClient();
   return (
-    <Navbar fluid={false} rounded={true}>
-      <Navbar.Brand href="https://songwrite.app">
-        <Image
-          src="https://flowbite.com/docs/images/logo.svg"
-          width="30"
-          height="30"
-          className="mr-3 h-6 sm:h-9"
+    <Navbar className="max-w-6xl m-auto content-around">
+      <Navbar.Brand href="/">
+        <img
+          src="/logo.png"
+          className="mr-3 h-12 sm:h-12 inline"
           alt="SongWrite.app Logo"
         />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+        <span className="hidden sm:block self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
           SongWrite.app
         </span>
       </Navbar.Brand>
@@ -55,15 +52,6 @@ const Nav = () => {
           <Navbar.Toggle />
         </div>
       )}
-      {/* <Navbar.Collapse>
-        <Navbar.Link href="/navbars" active={true}>
-          Home
-        </Navbar.Link>
-        <Navbar.Link href="/navbars">About</Navbar.Link>
-        <Navbar.Link href="/navbars">Services</Navbar.Link>
-        <Navbar.Link href="/navbars">Pricing</Navbar.Link>
-        <Navbar.Link href="/navbars">Contact</Navbar.Link>
-      </Navbar.Collapse> */}
     </Navbar>
   );
 };
