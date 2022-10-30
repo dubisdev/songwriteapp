@@ -17,9 +17,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
         <meta name="keywords" content="songwriting, song, write, chords" />
       </head>
-      <body>{children}</body>
-      {/* @ts-ignore */}
-      <wc-toast></wc-toast>
+      <body>
+        {children}
+        <wc-toast />
+      </body>
     </html>
   );
 }

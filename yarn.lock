@@ -2166,10 +2166,10 @@ utrie@^1.0.2:
   dependencies:
     base64-arraybuffer "^1.0.2"
 
-wc-toast@1.2.8:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/wc-toast/-/wc-toast-1.2.8.tgz#9a8830df01c81e8128cbdf3ddf82747e82026dc3"
-  integrity sha512-tA6oIIcFW5JSrXEB18EHuEHlyK+woDeI/kIbNuBJ+KWLL4118PgcKGXDPSRg5A7jYxiiQ7BiuTsN5hi1ShyRMg==
+wc-toast@1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/wc-toast/-/wc-toast-1.2.9.tgz#ac751321595e6ba45bef0601b955952403efc699"
+  integrity sha512-cwYwKCLqezlNrMkXFEQg/4VzBuPBMn8nEDWvAOcw5AfutkoWCCa28li9tpcM9s/ITRL18lVsdeR6HzUQAqFVKA==
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"

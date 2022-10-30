@@ -1,7 +1,5 @@
 "use client";
 
-// @ts-ignore
-import { toast } from "wc-toast";
 import { FC } from "react";
 import { useStore } from "../utils/state";
 
@@ -10,6 +8,7 @@ export const CopyToClipboard: FC = () => {
 
   const handleClick = async () => {
     await navigator.clipboard.writeText(songName + "\n\n" + songContent);
+    const { toast } = await import("wc-toast");
     toast("Copied to Clipboard!", { icon: { type: "success" } });
   };
 
