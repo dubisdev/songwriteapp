@@ -16,8 +16,12 @@ const Home = () => {
   return (
     <div className="flex justify-center px-4">
       <div className="max-w-2xl mt-20 w-full">
+        <h2 className="text-center text-2xl font-bold mb-10">
+          Sign In to SongWrite.app
+        </h2>
+
         <Auth
-          magicLink
+          onlyThirdPartyProviders
           providers={["google"]}
           redirectTo="/"
           supabaseClient={supabase}

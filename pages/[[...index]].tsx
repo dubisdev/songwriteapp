@@ -1,5 +1,5 @@
 import Head from "next/head";
-import type { GetStaticPaths, GetStaticProps } from "next/types";
+import type { GetServerSideProps } from "next/types";
 import { Editor } from "../components/Editor";
 import { Preview } from "../components/Preview";
 import { getContentFromParams } from "../utils/hashedLink";
@@ -20,7 +20,7 @@ const Home = ({ title = "", content = "" }) => {
       </Head>
 
       <h1 className="p-4 mb-5 text-3xl font-bold underline text-center">
-        <span id="title">SongWrite.app</span>
+        Song Editor
       </h1>
 
       <div className="px-2 md:grid md:grid-cols-2 gap-2">
@@ -33,14 +33,7 @@ const Home = ({ title = "", content = "" }) => {
 
 export default Home;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [{ params: { index: ["test"] } }],
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { title, content } = getContentFromParams(context.params);
 
   return {

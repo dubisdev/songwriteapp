@@ -19,7 +19,6 @@ export const Editor: FC<EditorProps> = ({ content, title }) => {
   return (
     <div className="text-center">
       <header className="mb-3">
-        <h2 className="text-start font-bold inline mr-2">Song Editor</h2>
         <input
           placeholder="Your Amazing song Name 🎶"
           className="outline outline-2 outline-gray-900 rounded-md w-1/2 text-center p-0"

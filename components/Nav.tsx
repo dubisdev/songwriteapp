@@ -13,7 +13,7 @@ const Nav = () => {
           className="mr-3 h-12 sm:h-12 inline"
           alt="SongWrite.app Logo"
         />
-        <span className="hidden sm:block self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
+        <span id="title" className="text-3xl font-bold underline">
           SongWrite.app
         </span>
       </Navbar.Brand>

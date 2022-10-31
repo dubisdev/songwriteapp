@@ -4,6 +4,7 @@ import { useStore } from "../utils/state";
 import { transportChords } from "../utils/transposeChords";
 import { CopyToClipboard } from "./CopyToClipboard";
 import { DownloadPDF } from "./DownloadPDF";
+import SaveToAccount from "./SaveToAccount";
 
 export const Preview: FC = () => {
   const [text, songName] = useStore((s) => [s.text, s.songName]);
@@ -80,6 +81,7 @@ export const Preview: FC = () => {
         }}
       />
       <DownloadPDF previewref={preview} title={songName} />
+      <SaveToAccount />
     </div>
   );
 };
