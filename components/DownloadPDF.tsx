@@ -15,7 +15,10 @@ export const DownloadPDF: FC<DownloadPDFProps> = ({ previewref, title }) => {
       callback: function (doc) {
         doc.save(`${title}.pdf`);
       },
-      html2canvas: { scale: 0.222 },
+      width: 200,
+      windowWidth: 1080,
+      autoPaging: "text",
+      margin: [10, 0, 10, 0],
     });
   };
 
