@@ -41,15 +41,14 @@ const Nav = () => {
                 {user.email}
               </span>
             </Dropdown.Header>
-            <Dropdown.Item>Dashboard</Dropdown.Item>
+            {/* <Dropdown.Item>Dashboard</Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Earnings</Dropdown.Item>
-            <Dropdown.Divider />
+            <Dropdown.Item>Earnings</Dropdown.Item> */}
+            {/* <Dropdown.Divider /> */}
             <Dropdown.Item onClick={() => client.auth.signOut()}>
               Sign out
             </Dropdown.Item>
           </Dropdown>
-          <Navbar.Toggle />
         </div>
       )}
     </Navbar>
