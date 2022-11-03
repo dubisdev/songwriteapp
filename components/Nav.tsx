@@ -18,8 +18,11 @@ const Nav = () => {
         </span>
       </Navbar.Brand>
       {!user && (
-        <Link href="/login" className="flex md:order-2">
-          Sign In
+        <Link
+          href="/login"
+          className="flex md:order-2 rounded-md bg-blue-600 p-2 text-white"
+        >
+          Log In
         </Link>
       )}
       {user && (
