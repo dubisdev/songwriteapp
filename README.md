@@ -40,6 +40,6 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 - [ ] Custom Scale with preferred chords (e.g. `C C# D Eb E F F# G Ab A Bb B`)
 - [ ] Export to word (doc, docx, odt...)
 - [x] Print to PDF (Basic Support)
-- [ ] Print to PDF (Fix multiple pages issue)
+- [x] Print to PDF (Fix multiple pages issue)
 - [ ] User accounts
 - [ ] Save songs to user accounts
