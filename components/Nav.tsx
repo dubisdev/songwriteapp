@@ -30,8 +30,10 @@ const Nav = () => {
             label={
               <Avatar
                 alt="User settings"
+                placeholderInitials={user.user_metadata?.name?.slice(0, 1)}
                 img={user?.user_metadata.avatar_url}
                 rounded={true}
+                bordered={true}
               />
             }
           >
