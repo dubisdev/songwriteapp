@@ -15,7 +15,7 @@
     "@supabase/auth-ui-react": "0.2.5",
     "@supabase/supabase-js": "2.0.5",
     "flowbite": "1.5.3",
-    "flowbite-react": "0.3.3",
+    "flowbite-react": "0.3.4",
     "js-base64": "3.7.2",
     "jspdf": "2.5.1",
     "just-debounce": "1.1.0",
@@ -31,10 +31,10 @@
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
     "autoprefixer": "10.4.13",
-    "eslint": "8.26.0",
+    "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
     "postcss": "8.4.18",
-    "tailwindcss": "3.2.1",
+    "tailwindcss": "3.2.2",
     "typescript": "4.8.4"
   }
 }
