@@ -5,15 +5,22 @@ import { transportChords } from "../utils/transposeChords";
 import { CopyToClipboard } from "./CopyToClipboard";
 import { DownloadPDF } from "./DownloadPDF";
 import SaveToAccount from "./SaveToAccount";
+import Transpose from "./Transpose";
 
 export const Preview: FC = () => {
-  const [text, songName] = useStore((s) => [s.text, s.songName]);
-  const preview = useRef(null);
+  const [text, songName, semitones] = useStore((s) => [
+    s.text,
+    s.songName,
+    s.semitones,
+  ]);
   const [lines, setLines] = useState<string[]>([]);
 
+  const preview = useRef(null);
+
   useEffect(() => {
-    setLines(text.split("\n"));
-  }, [text]);
+    const separatedText = text.split("\n");
+    setLines(separatedText.map((line) => transportChords(line, semitones)));
+  }, [text, semitones]);
 
   return (
     <div>
@@ -41,26 +48,7 @@ export const Preview: FC = () => {
           </pre>
         </div>
       </div>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-1 px-2 mr-2"
-        onClick={(e) => {
-          setLines((prevLines) =>
-            prevLines.map((line) => transportChords(line, 2))
-          );
-        }}
-      >
-        Transpose +1
-      </button>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-1 px-2 mr-2"
-        onClick={(e) => {
-          setLines((prevLines) =>
-            prevLines.map((line) => transportChords(line, -2))
-          );
-        }}
-      >
-        Transpose -1
-      </button>
+
       <button
         className="bg-purple-500 hover:bg-purple-700 text-white font-bold rounded py-1 px-2 mr-2"
         onClick={(e) => {
@@ -69,7 +57,7 @@ export const Preview: FC = () => {
       >
         Share Link
       </button>
-      <CopyToClipboard />
+
       <input
         className="px-2 py-1"
         type="color"
@@ -80,8 +68,10 @@ export const Preview: FC = () => {
           );
         }}
       />
+      <CopyToClipboard />
       <DownloadPDF previewref={preview} title={songName} />
       <SaveToAccount />
+      <Transpose />
     </div>
   );
 };

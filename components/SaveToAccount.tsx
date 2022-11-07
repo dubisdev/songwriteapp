@@ -1,6 +1,7 @@
 import { useUser } from "@supabase/auth-helpers-react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { FC } from "react";
+import slugify from "slugify";
 import { useStore } from "../utils/state";
 
 const SaveToAccount: FC = () => {
@@ -13,6 +14,7 @@ const SaveToAccount: FC = () => {
   const handleClick = async () => {
     await client.from("lyrics").insert({
       owner: user.id,
+      slug: slugify(songName, { lower: true }),
       content: songContent,
       title: songName,
     });

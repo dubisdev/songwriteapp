@@ -1,6 +1,4 @@
-import {
-  createServerSupabaseClient,
-} from "@supabase/auth-helpers-nextjs";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { encode } from "js-base64";
 import { GetServerSidePropsContext } from "next";
 import { getSongByKey, getUsernameId } from "../../../utils/database";
@@ -16,15 +14,17 @@ const redirectTo = (path: string) => ({
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const supabase = createServerSupabaseClient(ctx);
-  const { username, title } = ctx.params || {};
+  const { username, slug } = ctx.params || {};
 
   const { data, error } = await getUsernameId(supabase, username as string);
   if (error || data.length === 0) return redirectTo("/");
   const userId = data[0].id;
 
-  const songKey = { userId, songName: title as string };
+  const songKey = { userId, slug: slug as string };
 
   const { data: songData, error: err } = await getSongByKey(supabase, songKey);
+
+  console.log(songData);
 
   if (err || songData?.length === 0) return redirectTo("/");
 
