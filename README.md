@@ -35,7 +35,7 @@ SongWrite.app is a simple songwriting app for the web. It's a single page app th
 - [ ] Use tabs as spaces
 - [ ] Mobile friendly
 - [ ] Transpose chords (More options)
-  - [ ] Transpose by half steps
+  - [x] Transpose by half steps
   - [ ] Transpose by number of semitones
 - [ ] Custom Scale with preferred chords (e.g. `C C# D Eb E F F# G Ab A Bb B`)
 - [ ] Export to word (doc, docx, odt...)

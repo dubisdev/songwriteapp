@@ -23,9 +23,6 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const songKey = { userId, slug: slug as string };
 
   const { data: songData, error: err } = await getSongByKey(supabase, songKey);
-
-  console.log(songData);
-
   if (err || songData?.length === 0) return redirectTo("/");
 
   const { title: songTitle, content: songContent } = songData[0];
