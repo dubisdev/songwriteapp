@@ -3,7 +3,12 @@ import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSidePropsContext } from "next";
 import { getUserLyrics, getUsernameId } from "../../utils/database";
 
-export default function empty({ songs, username }) {
+type UserPageProps = {
+  username: string;
+  songs: any[];
+};
+
+export default function UserPage({ songs, username }: UserPageProps) {
   return songs.map((song) => (
     <a key={song.slug} href={`/${username}/${song.slug}`}>
       {song.title}
