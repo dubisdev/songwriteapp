@@ -1,20 +1,17 @@
 import create from "zustand";
-import { debouncedUpdateHashedContent } from "./hashedLink";
+import { debouncedUpdateHashedContent } from "../utils/hashedLink";
 
 interface SongState {
   songName: string;
   text: string;
-  semitones: number;
+
   setSongName: (title: string) => void;
   setText: (text: string) => void;
-  setSemitones: (semitones: number) => void;
-  addSemitones: (semitones: number) => void;
 }
 
 export const useStore = create<SongState>()((set) => ({
   songName: "",
   text: "",
-  semitones: 0,
 
   setSongName: (songName: string) => {
     set((state) => {
@@ -30,9 +27,4 @@ export const useStore = create<SongState>()((set) => ({
         debouncedUpdateHashedContent({ title: state.songName, content: text });
       return { text };
     }),
-
-  setSemitones: (semitones: number) => set({ semitones }),
-
-  addSemitones: (semitones: number) =>
-    set((state) => ({ semitones: state.semitones + semitones })),
 }));

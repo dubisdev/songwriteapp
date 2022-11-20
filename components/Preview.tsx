@@ -1,18 +1,13 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { createHTMLForChords, getChords } from "../utils/chordDetection";
-import { useStore } from "../utils/state";
+import { useStore as useSongStore } from "../stores/song";
+import { useStore as useEditorStore } from "../stores/editorState";
 import { transportChords } from "../utils/transposeChords";
-import { CopyToClipboard } from "./CopyToClipboard";
-import { DownloadPDF } from "./DownloadPDF";
-import SaveToAccount from "./SaveToAccount";
-import Transpose from "./Transpose";
 
 export const Preview: FC = () => {
-  const [text, songName, semitones] = useStore((s) => [
-    s.text,
-    s.songName,
-    s.semitones,
-  ]);
+  const [text, songName] = useSongStore((s) => [s.text, s.songName]);
+  const semitones = useEditorStore((s) => s.semitones);
+  const setPreviewRef = useEditorStore((s) => s.setPreviewRef);
   const [lines, setLines] = useState<string[]>([]);
 
   const preview = useRef(null);
@@ -21,6 +16,10 @@ export const Preview: FC = () => {
     const separatedText = text.split("\n");
     setLines(separatedText.map((line) => transportChords(line, semitones)));
   }, [text, semitones]);
+
+  useEffect(() => {
+    setPreviewRef(preview);
+  }, [preview, setPreviewRef]);
 
   return (
     <div>
@@ -48,30 +47,6 @@ export const Preview: FC = () => {
           </pre>
         </div>
       </div>
-
-      <button
-        className="bg-purple-500 hover:bg-purple-700 text-white font-bold rounded py-1 px-2 mr-2"
-        onClick={(e) => {
-          navigator.clipboard.writeText(window.location.href);
-        }}
-      >
-        Share Link
-      </button>
-
-      <input
-        className="px-2 py-1"
-        type="color"
-        onChange={(e) => {
-          document.documentElement.style.setProperty(
-            "--cords-color",
-            e.target.value
-          );
-        }}
-      />
-      <CopyToClipboard />
-      <DownloadPDF previewref={preview} title={songName} />
-      <SaveToAccount />
-      <Transpose />
     </div>
   );
 };

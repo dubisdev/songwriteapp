@@ -70,7 +70,7 @@ const transpose = (note: string, semitones: number) => {
 
   if (noteIndex === -1) return note;
 
-  const newNoteIndex = noteIndex + semitones;
+  const newNoteIndex = noteIndex + normalizeSemitonesToBase12(semitones);
 
   // get the new note handling the edge cases (out of range)
   const newNote = useBemol
@@ -78,4 +78,9 @@ const transpose = (note: string, semitones: number) => {
     : scaleSharp.at(newNoteIndex) || scaleSharp[newNoteIndex - 12];
 
   return newNote;
+};
+
+const normalizeSemitonesToBase12 = (semitones: number) => {
+  const semitonesMod12 = semitones % 12;
+  return semitonesMod12 < 0 ? semitonesMod12 + 12 : semitonesMod12;
 };

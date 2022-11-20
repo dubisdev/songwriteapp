@@ -6,6 +6,13 @@
     --cords-color: #d52710;
 }
 
+html,
+body,
+body>div:first-child,
+div#__next {
+    height: 100%;
+}
+
 input:focus::placeholder {
     transition: all 0.2s;
     color: transparent;

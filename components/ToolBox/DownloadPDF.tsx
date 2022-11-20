@@ -1,14 +1,13 @@
-import type { FC, RefObject } from "react";
 import jsPDF from "jspdf";
+import { useStore } from "../../stores/editorState";
+import { useStore as useSongStore } from "../../stores/song";
 
-type DownloadPDFProps = {
-  previewref: RefObject<HTMLElement>;
-  title: string;
-};
+const DownloadPDF = () => {
+  const title = useSongStore((s) => s.songName);
+  const previewRef = useStore((s) => s.previewRef);
 
-export const DownloadPDF: FC<DownloadPDFProps> = ({ previewref, title }) => {
   const handleDownload = () => {
-    const content = previewref.current;
+    const content = previewRef?.current;
 
     const doc = new jsPDF();
     doc.html(content!, {
@@ -24,10 +23,12 @@ export const DownloadPDF: FC<DownloadPDFProps> = ({ previewref, title }) => {
 
   return (
     <button
-      className="bg-red-400 hover:bg-red-600 text-white font-bold rounded py-1 px-2 mr-2"
+      className="bg-red-400 hover:bg-red-600 text-white font-bold rounded py-1 px-2"
       onClick={handleDownload}
     >
       Download PDF
     </button>
   );
 };
+
+export default DownloadPDF;

@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { useStore } from "../utils/state";
+import { useStore } from "../../stores/song";
 
-export const CopyToClipboard: FC = () => {
+const CopyToClipboard: FC = () => {
   const [songContent, songName] = useStore((s) => [s.text, s.songName]);
 
   const handleClick = async () => {
@@ -19,3 +19,5 @@ export const CopyToClipboard: FC = () => {
     </button>
   );
 };
+
+export default CopyToClipboard;

@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
 import TextareaAutosize from "react-autosize-textarea";
-import { useStore } from "../utils/state";
+import { useStore } from "../stores/song";
 
 type EditorProps = {
   content: string;
@@ -14,7 +14,7 @@ export const Editor: FC<EditorProps> = ({ content, title }) => {
   useEffect(() => {
     setSongName(title);
     setText(content);
-  }, [content, title]);
+  }, [content, title, setSongName, setText]);
 
   return (
     <div className="text-center">
