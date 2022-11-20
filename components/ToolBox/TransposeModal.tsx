@@ -12,6 +12,7 @@ const TransposeModal = () => {
     const handleClickOutside: EventListener = (event) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         setModalVisible(false);
+        event.preventDefault();
       }
     };
     document.addEventListener("click", handleClickOutside, true);

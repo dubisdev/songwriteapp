@@ -5,7 +5,10 @@ const OpenTransposeModalButton = () => {
 
   return (
     <button
-      onClick={toggleTransposeModal}
+      onClick={(e) => {
+        if (e.defaultPrevented) return;
+        toggleTransposeModal();
+      }}
       className="text-white bg-blue-500 hover:bg-blue-300 rounded py-1 px-2 font-bold"
       type="button"
     >
