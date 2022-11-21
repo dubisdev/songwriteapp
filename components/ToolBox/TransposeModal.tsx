@@ -26,7 +26,7 @@ const TransposeModal = () => {
   return (
     <div
       ref={ref}
-      className="overflow-y-auto overflow-x-hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 z-50 p-4"
+      className="w-5/6 md:w-auto overflow-y-auto overflow-x-hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 z-50 md:p-4"
     >
       <div className="h-full md:h-auto w-full">
         <div className="text-xl bg-white text-gray-900 rounded-lg shadow dark:bg-gray-700 dark:text-white py-6 px-6 lg:px-8 inline-flex flex-wrap w-full gap-3 items-center justify-center">
