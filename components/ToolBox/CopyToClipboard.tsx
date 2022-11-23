@@ -1,13 +1,18 @@
-import { FC } from "react";
 import { useStore } from "../../stores/song";
 
-const CopyToClipboard: FC = () => {
-  const [songContent, songName] = useStore((s) => [s.text, s.songName]);
+const CopyToClipboard = () => {
+  const songName = useStore((s) => s.songName);
 
   const handleClick = async () => {
-    await navigator.clipboard.writeText(songName + "\n\n" + songContent);
+    const $pre = document.getElementById("chords-preview");
+    const content = $pre?.innerText || "";
+
+    const clipboardContent = songName ? songName + "\n\n" + content : content;
+
+    await navigator.clipboard.writeText(clipboardContent);
+
     const { toast } = await import("wc-toast");
-    toast("Copied to Clipboard!", { icon: { type: "success" } });
+    toast("Song copied to Clipboard!", { icon: { type: "success" } });
   };
 
   return (
