@@ -21,7 +21,7 @@ export const Editor: FC<EditorProps> = ({ content, title }) => {
       <header className="mb-3">
         <input
           placeholder="Your Amazing song Name 🎶"
-          className="outline outline-2 outline-gray-900 rounded-md w-1/2 text-center p-0"
+          className="outline outline-2 outline-gray-900 rounded-md w-2/3 text-center p-0 text-lg"
           type="text"
           defaultValue={title}
           onChange={(e) => setSongName(e.target.value)}
@@ -32,7 +32,7 @@ export const Editor: FC<EditorProps> = ({ content, title }) => {
         defaultValue={content}
         onChange={(e) => setText(e.currentTarget.value)}
         placeholder="Here goes your song!"
-        className="min-h-full w-full resize-none p-3 border-2 border-gray-300 rounded-sm font-mono"
+        className="min-h-full w-full resize-none p-3 border-2 border-black focus:outline-gray-400 rounded font-mono"
       />
     </div>
   );

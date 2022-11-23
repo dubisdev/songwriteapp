@@ -6,7 +6,7 @@ import TransposeModal from "./TransposeModal";
 
 const ToolBox = () => {
   return (
-    <div className="fixed bottom-0 md:bottom-10 left-0 right-0 flex items-center justify-center p-3 gap-3 bg-slate-700 w-fit m-auto md:rounded-xl flex-wrap">
+    <div className="fixed bottom-0 md:bottom-10 left-0 right-0 flex items-center justify-center p-3 gap-3 bg-slate-700 w-fit m-auto md:rounded-xl flex-wrap shadow-sm shadow-slate-600">
       <ShareLink />
 
       <ChordColorSelector />

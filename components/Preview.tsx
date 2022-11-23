@@ -17,7 +17,7 @@ export const Preview: FC = () => {
   return (
     <div>
       <header className="mb-3">
-        <h2 className="font-bold inline mr-2">Live Preview</h2>
+        <h2 className="text-center font-bold text-lg">Live Preview</h2>
       </header>
 
       <div className="border-2 border-black rounded-md min-h-full mb-2">
