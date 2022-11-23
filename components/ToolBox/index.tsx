@@ -19,16 +19,21 @@ const ToolBox = () => {
   );
 };
 
-const ShareLink = () => (
-  <button
-    className="bg-purple-500 hover:bg-purple-700 text-white font-bold rounded py-1 px-2"
-    onClick={() => {
-      navigator.clipboard.writeText(window.location.href);
-    }}
-  >
-    Share Link
-  </button>
-);
+const ShareLink = () => {
+  const handleClick = async () => {
+    await navigator.clipboard.writeText(window.location.href);
+    const { toast } = await import("wc-toast");
+    toast("Link copied to Clipboard!", { icon: { type: "success" } });
+  };
+  return (
+    <button
+      className="bg-purple-500 hover:bg-purple-700 text-white font-bold rounded py-1 px-2"
+      onClick={handleClick}
+    >
+      Share Link
+    </button>
+  );
+};
 
 const ChordColorSelector = () => (
   <input

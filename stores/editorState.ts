@@ -8,15 +8,11 @@ interface SongState {
   semitones: number;
   setSemitones: (semitones: number) => void;
   addSemitones: (semitones: number) => void;
-
-  previewRef: React.RefObject<HTMLDivElement> | null;
-  setPreviewRef: (previewRef: React.RefObject<HTMLDivElement>) => void;
 }
 
 export const useStore = create<SongState>()((set) => ({
   showTransposeModal: false,
   semitones: 0,
-  previewRef: null,
 
   setShowTransposeModal: (newState: boolean) =>
     set({ showTransposeModal: newState }),
@@ -28,7 +24,4 @@ export const useStore = create<SongState>()((set) => ({
 
   addSemitones: (semitones: number) =>
     set((state) => ({ semitones: state.semitones + semitones })),
-
-  setPreviewRef: (previewRef: React.RefObject<HTMLDivElement>) =>
-    set({ previewRef }),
 }));

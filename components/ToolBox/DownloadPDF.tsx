@@ -1,13 +1,11 @@
 import jsPDF from "jspdf";
-import { useStore } from "../../stores/editorState";
-import { useStore as useSongStore } from "../../stores/song";
+import { useStore } from "../../stores/song";
 
 const DownloadPDF = () => {
-  const title = useSongStore((s) => s.songName);
-  const previewRef = useStore((s) => s.previewRef);
+  const title = useStore((s) => s.songName);
 
   const handleDownload = () => {
-    const content = previewRef?.current;
+    const content = document.getElementById("print-region");
 
     const doc = new jsPDF();
     doc.html(content!, {
